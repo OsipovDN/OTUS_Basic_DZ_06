@@ -6,13 +6,12 @@ add_library (MyVector STATIC
     src/myVector.cpp
     )
 
-set_target_properties(MyContainers PROPERTIES
+target_include_directories(MyVector PRIVATE include)
+
+set_target_properties(MyVector PROPERTIES
 	CXX_STANDARD 17
 	CXX_STANDARD_REQUIRED ON
 )
-
-target_include_directories(MyVector PRIVATE include)
-
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR
     CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
