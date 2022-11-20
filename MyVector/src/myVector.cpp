@@ -1,8 +1,8 @@
 #include "myVector.h"
 
-MyVector::MyVector() :v_ptr(nullptr), size(0) {}
+template <typename T> MyVector<T>::MyVector() :v_ptr(nullptr), size(0) {}
 
-MyVector::MyVector(size_t count, const T& val = 0) : MyVector() {
+template <typename T> MyVector<T>::MyVector(size_t count, const T& val = 0) : MyVector() {
 	size = count;
 	v_ptr = new T[size];
 	for (size_t i = 0; i < size; ++i) {
@@ -10,7 +10,7 @@ MyVector::MyVector(size_t count, const T& val = 0) : MyVector() {
 	}
 }
 
-void MyVector::insert(size_t pos, int count, const T& val) {
+template <typename T> void  MyVector<T>::insert(size_t pos, int count, const T& val) {
 	if (pos < 0)
 		pos = 0;
 	if (pos > size)
@@ -30,14 +30,14 @@ void MyVector::insert(size_t pos, int count, const T& val) {
 	v_ptr = res_v;
 }
 
-void MyVector::insert(size_t pos, const T& val) {
+template <typename T> void  MyVector<T>::insert(size_t pos, const T& val) {
 	insert(pos, 1, val);
 }
 
-void MyVector::push_back(const T& val) {
+template <typename T> void  MyVector<T>::push_back(const T& val) {
 	insert((size - 1), 1, val);
 }
-void MyVector::erase() {
+template <typename T> void  MyVector<T>::erase() {
 	delete[]v_ptr;
 	v_ptr = nullptr;
 }

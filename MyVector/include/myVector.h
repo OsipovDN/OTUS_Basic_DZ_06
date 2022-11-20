@@ -1,7 +1,8 @@
 #pragma once
 
 
-template <typename T> class MyVector {
+template <typename T> 
+class MyVector {
 public:
 	MyVector();
 
