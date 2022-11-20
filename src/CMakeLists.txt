@@ -10,13 +10,21 @@ set_target_properties(MyContainers PROPERTIES
 	CXX_STANDARD 17
 	CXX_STANDARD_REQUIRED ON
 )
-target_include_directories(MyContainers PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-target_include_directories(MyContainers PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../MyVector)
+
+target_include_directories(
+    MyContainers 
+    PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
+    )
+target_include_directories(
+    MyContainers 
+    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../MyVector/include
+    )
+
 target_link_libraries (MyContainers MyVector)
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR
     CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    target_compile_options(calc PRIVATE 
+    target_compile_options(MyContainers PRIVATE 
         -g
         -Wall
         -Wextra
