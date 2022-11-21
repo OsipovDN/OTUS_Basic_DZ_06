@@ -3,7 +3,7 @@ class MyVector {
 public:
 	MyVector();
 
-	MyVector(size_t count, const T& val);
+	explicit MyVector(size_t count, const T& val);
 
 	~MyVector() {
 		delete[]v_ptr;
@@ -15,12 +15,12 @@ public:
 
 	void push_back(const T& val);
 
-	void erase(size_t count);
+	void erase(size_t pos);
 
 	size_t size()const { return size_vec; }
 
 	T& operator [](size_t pos) {
-		return v_ptr[val];
+		return v_ptr[pos];
 	}
 
 
@@ -67,6 +67,10 @@ template <typename T> void  MyVector<T>::push_back(const T& val) {
 	insert((size_vec), 1, val);
 }
 template <typename T> void  MyVector<T>::erase(size_t pos) {
+	if (pos < 0)
+		pos = 0;
+	if (pos > size_vec)
+		pos = size_vec;
 	T* res_v = new T[size_vec - 1];
 	for (size_t i = 0; i < pos; ++i) {
 		res_v[i] = v_ptr[i];
