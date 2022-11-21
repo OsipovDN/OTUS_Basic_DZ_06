@@ -1,5 +1,6 @@
 #include "iostream"
 #include "myVector.cpp"
+#include "myList.cpp"
 
 template <typename T>void print(MyVector <T>& v) {
 	for (size_t i = 0; i < v.size(); ++i) {

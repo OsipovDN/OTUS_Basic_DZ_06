@@ -15,7 +15,13 @@ target_include_directories(
     PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../MyVector
     )
 
+target_include_directories(
+    MyContainers 
+    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../MyList
+    )
+
 target_link_libraries (MyContainers MyVector)
+target_link_libraries (MyContainers MyList)
 
 set_target_properties(MyContainers PROPERTIES
 	CXX_STANDARD 17
