@@ -1,12 +1,11 @@
 cmake_minimum_required (VERSION 3.8)
 
-project (My_Vector)
+project (MyVector)
 
 add_library (MyVector STATIC 
-    include/myVector.h
+    myVector.cpp
     )
 
-#target_include_directories(MyVector PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 set_target_properties(MyVector PROPERTIES
 	CXX_STANDARD 17
@@ -29,5 +28,3 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
         /WX
     )
 endif()
-
-#target_compile_features(MyVector PUBLIC cxx_std_17)
