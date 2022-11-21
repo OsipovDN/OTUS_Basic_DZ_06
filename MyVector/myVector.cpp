@@ -15,11 +15,11 @@ public:
 
 	void push_back(const T& val);
 
-	void erase();
+	void erase(size_t count);
 
 	size_t size()const { return size_vec; }
 
-	T& operator [](size_t val) {
+	T& operator [](size_t pos) {
 		return v_ptr[val];
 	}
 
@@ -44,19 +44,19 @@ template <typename T> void  MyVector<T>::insert(size_t pos, int count, const T& 
 		pos = 0;
 	if (pos > size_vec)
 		pos = size_vec;
-	size_vec += count;
-	T* res_v = new T[size_vec];
+	T* res_v = new T[size_vec + count];
 	for (size_t i = 0; i < pos; ++i) {
 		res_v[i] = v_ptr[i];
 	}
 	for (size_t i = pos; i < (pos + count); ++i) {
 		res_v[i] = val;
 	}
-	for (size_t i = (pos + count); i < size_vec; ++i) {
-		res_v[i] = v_ptr[i];
+	for (size_t i = (pos + count); i < (size_vec + count); ++i) {
+		res_v[i] = v_ptr[i - count];
 	}
 	delete[]v_ptr;
 	v_ptr = res_v;
+	size_vec += count;
 }
 
 template <typename T> void  MyVector<T>::insert(size_t pos, const T& val) {
@@ -64,9 +64,17 @@ template <typename T> void  MyVector<T>::insert(size_t pos, const T& val) {
 }
 
 template <typename T> void  MyVector<T>::push_back(const T& val) {
-	insert((size_vec - 1), 1, val);
+	insert((size_vec), 1, val);
 }
-template <typename T> void  MyVector<T>::erase() {
+template <typename T> void  MyVector<T>::erase(size_t pos) {
+	T* res_v = new T[size_vec - 1];
+	for (size_t i = 0; i < pos; ++i) {
+		res_v[i] = v_ptr[i];
+	}
+	for (size_t i = (pos + 1); i < size_vec; ++i) {
+		res_v[i] = v_ptr[i];
+	}
 	delete[]v_ptr;
-	v_ptr = nullptr;
+	v_ptr = res_v;
+	size_vec -= 1;
 }
