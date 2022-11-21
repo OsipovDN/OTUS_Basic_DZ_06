@@ -1,6 +1,6 @@
 #include "iostream"
-#include "myVector.cpp"
-#include "myList.cpp"
+#include "myVector.h"
+#include "myList.h"
 
 template <typename T>void print(MyVector <T>& v) {
 	for (size_t i = 0; i < v.size(); ++i) {
@@ -30,10 +30,13 @@ int main() {
 	vec1.insert(1, 10);
 	print(vec1);
 
-	vec1.insert((static_cast <size_t>(vec1.size() / 2))+1, 20);
+	vec1.insert((static_cast <size_t>(vec1.size() / 2)) + 1, 20);
 	print(vec1);
 
 	vec1.push_back(30);
 	print(vec1);
+
+	return 0;
+}
 
 

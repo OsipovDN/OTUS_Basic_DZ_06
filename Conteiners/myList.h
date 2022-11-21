@@ -1,3 +1,5 @@
+#pragma once
+
 template <typename T>
 class MyList {
 	struct Node
