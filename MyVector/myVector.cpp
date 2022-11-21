@@ -60,7 +60,7 @@ template <typename T> void  MyVector<T>::insert(size_t pos, int count, const T& 
 }
 
 template <typename T> void  MyVector<T>::insert(size_t pos, const T& val) {
-	insert(pos, 1, val);
+	insert((pos-1), 1, val);
 }
 
 template <typename T> void  MyVector<T>::push_back(const T& val) {
@@ -75,10 +75,10 @@ template <typename T> void  MyVector<T>::erase(size_t pos) {
 	for (size_t i = 0; i < pos; ++i) {
 		res_v[i] = v_ptr[i];
 	}
-	for (size_t i = (pos + 1); i < size_vec; ++i) {
-		res_v[i] = v_ptr[i];
+	for (size_t i =(pos-1); i < size_vec; ++i) {
+		res_v[i] = v_ptr[i+1];
 	}
 	delete[]v_ptr;
 	v_ptr = res_v;
-	size_vec -= 1;
+	
 }

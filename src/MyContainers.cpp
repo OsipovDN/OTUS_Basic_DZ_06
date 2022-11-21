@@ -19,23 +19,20 @@ int main() {
 	std::cout << vec1.size() << std::endl;
 
 	vec1.erase(3);
+	std::cout << vec1.size() << std::endl;
+	vec1.erase(4);
+	std::cout << vec1.size() << std::endl;
 	vec1.erase(5);
-	vec1.erase(7);
+	std::cout << vec1.size() << std::endl;
 	print(vec1);
 
 	vec1.insert(1, 10);
 	print(vec1);
 
-	vec1.insert((static_cast <size_t>(vec1.size() / 2)), 20);
+	vec1.insert((static_cast <size_t>(vec1.size() / 2))+1, 20);
 	print(vec1);
 
 	vec1.push_back(30);
 	print(vec1);
 
-
-
-	MyVector <char> vec2(3, 'x');
-	print(vec2);
-	return 0;
-}
 
