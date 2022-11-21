@@ -1,9 +1,10 @@
 cmake_minimum_required (VERSION 3.8)
 
-project (My_Vector)
+project (MyVector)
 
 add_library (MyVector STATIC 
-    include/myVector.h
+    myVector.cpp
+    #include/myVector.h
     )
 
 #target_include_directories(MyVector PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)

@@ -1,7 +1,4 @@
-#pragma once
-
-
-template <typename T> 
+template <typename T>
 class MyVector {
 public:
 	MyVector();
@@ -22,9 +19,9 @@ public:
 
 	size_t size()const { return size_vec; }
 
-	/*T& operator [](size_t val) {
+	T& operator [](size_t val) {
 		return v_ptr[val];
-	}*/
+	}
 
 
 private:
