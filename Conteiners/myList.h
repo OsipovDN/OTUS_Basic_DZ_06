@@ -1,3 +1,5 @@
+#pragma once
+
 template <typename T>
 class MyList {
 	struct Node
@@ -5,10 +7,20 @@ class MyList {
 		T val;
 		Node* next;
 	};
+	Node* first;
+	Node* last;
+	size_t size;
 public:
-	MyList();
+	MyList() :first(nullptr), last(nullptr), size(0) {};
 
-	explicit MyList();
+	explicit MyList(const T& val) :MyList() {
+		size = 1;
+		first=last = new Node;
+		first->Node::val = val;
+		first->Node::next= nullptr;
+	}
+
+	explicit MyList(size_t count, const T& val){}
 
 	~MyList();
 
