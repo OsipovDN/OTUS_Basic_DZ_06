@@ -19,14 +19,13 @@ public:
 		size += 1;
 	}
 	explicit MyList(size_t count, const T& val) :MyList() {
-		Node* ref = new Node(val);
-		first = ref;
+		Node*temp = new Node(val);
+		first = temp;
 		do {
-			ref->next = new Node(val);
-			last = ref->next;
+			temp->next = new Node(val);	
 		}
 		while (size != count);
-
+		last = temp->next;
 	}
 
 	~MyList();
@@ -51,5 +50,12 @@ public:
 
 	size_t size()const { return size; }
 
-	void erase(size_t pos);
+	void erase(Node* pos) {
+		Node* temp = first;
+		while (temp != pos) {
+			temp = temp->next;
+		}
+		temp->next = lst->next;
+		delete lst;
+	}
 };
