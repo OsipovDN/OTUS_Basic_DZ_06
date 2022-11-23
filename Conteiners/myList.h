@@ -9,18 +9,16 @@ class MyList {
 	};
 	Node* first;
 	Node* last;
-	size_t size;
+	size_t count;
 public:
-	MyList() :first(nullptr), last(nullptr), size(0) {};
+	MyList() :first(nullptr), last(nullptr), count(0) {}
 
 	explicit MyList(const T& val) :MyList() {
-		size = 1;
-		first=last = new Node;
+		count = 1;
+		first = last = new Node;
 		first->Node::val = val;
 		first->Node::next= nullptr;
 	}
-
-	explicit MyList(size_t count, const T& val){}
 
 	~MyList();
 
