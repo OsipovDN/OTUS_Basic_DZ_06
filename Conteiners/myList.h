@@ -7,20 +7,10 @@ class MyList {
 		T val;
 		Node* next;
 	};
-	Node* first;
-	Node* last;
-	size_t size;
 public:
-	MyList() :first(nullptr), last(nullptr), size(0) {};
+	MyList();
 
-	explicit MyList(const T& val) :MyList() {
-		size = 1;
-		first=last = new Node;
-		first->Node::val = val;
-		first->Node::next= nullptr;
-	}
-
-	explicit MyList(size_t count, const T& val){}
+	explicit MyList();
 
 	~MyList();
 
