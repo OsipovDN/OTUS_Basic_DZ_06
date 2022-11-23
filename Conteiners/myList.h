@@ -19,7 +19,14 @@ public:
 		size += 1;
 	}
 	explicit MyList(size_t count, const T& val) :MyList() {
-		
+		Node* ref = new Node(val);
+		first = ref;
+		do {
+			ref->next = new Node(val);
+			last = ref->next;
+		}
+		while (size != count);
+
 	}
 
 	~MyList();
