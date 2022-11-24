@@ -12,7 +12,7 @@ template <typename T>void print(MyVector <T>& v) {
 
 int main() {
 
-	MyVector <int> vec1;
+	/*MyVector <int> vec1;
 	for (int i = 0; i < 10; ++i) {
 		vec1.push_back(i);
 	}
@@ -34,7 +34,11 @@ int main() {
 	print(vec1);
 
 	vec1.push_back(30);
-	print(vec1);
+	print(vec1);*/
+
+
+	MyList <int>lst1(5, 3);
+	lst1.print();
 
 	return 0;
 }
