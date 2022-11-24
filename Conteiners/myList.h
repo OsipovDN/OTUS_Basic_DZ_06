@@ -29,7 +29,12 @@ public:
 	}
 
 	~MyList() {
-
+		Node* temp = first,buf;
+		while (temp->next!= nullptr) {
+			buf = temp->next;
+			delete temp;
+			temp = buf;
+		}
 	}
 
 	void insert(size_t pos, int count, const T& val);
