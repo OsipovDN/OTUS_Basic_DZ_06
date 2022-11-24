@@ -38,8 +38,18 @@ int main() {
 
 
 	MyList <int>lst1(5, 3);
+	/*MyList <int>lst1;
+	lst1.push_back(2);
+	lst1.push_back(3);
+	lst1.push_back(4);*/
+	size_t val = lst1.get_size();
+	std::cout << val << std::endl;
 	lst1.print();
 
+	/*lst1.push_front(10);
+	val = lst1.get_size();
+	std::cout << val << std::endl;
+	lst1.print();*/
 	return 0;
 }
 
