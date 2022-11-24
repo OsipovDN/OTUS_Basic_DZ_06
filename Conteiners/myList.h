@@ -72,6 +72,7 @@ public:
 		}
 		temp->next = lst->next;
 		delete lst;
+		size -= 1;
 		return temp;
 	}
 
@@ -89,5 +90,6 @@ public:
 			n->next = temp->next;
 			temp->next = n;
 		}
+		size += 1;
 	}
 };
