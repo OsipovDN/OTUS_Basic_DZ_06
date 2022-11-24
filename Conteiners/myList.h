@@ -37,9 +37,6 @@ public:
 		}
 	}
 
-	void insert(size_t pos, int count, const T& val);
-	void insert(size_t pos, const T& val);
-
 	bool is_empty() {
 		return (first == nullptr);
 	}
@@ -68,12 +65,16 @@ public:
 
 	size_t size()const { return size; }
 
-	void erase(Node* pos) {
+	Node* erase(Node* pos) {
 		Node* temp = first;
 		while (temp != pos) {
 			temp = temp->next;
 		}
 		temp->next = lst->next;
 		delete lst;
+		return temp;
 	}
+
+	void insert(size_t pos, int count, const T& val);
+	void insert(size_t pos, const T& val);
 };
