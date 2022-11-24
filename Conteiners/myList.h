@@ -1,5 +1,5 @@
 #pragma once
-#include <iostream>
+#include <ostream>
 
 template <typename T>
 class MyList {
@@ -20,17 +20,23 @@ public:
 		size += 1;
 	}
 	explicit MyList(size_t count, const T& val) :MyList() {
-		Node*temp = new Node(val);
-		first = temp;
-		do {
-			temp->next = new Node(val);	
+		if (count == 0) { 
+			return; 
 		}
-		while (size != count);
-		last = temp->next;
+		first = last =new Node(val);
+		Node* temp= first;
+		size = 1;
+		while (size < count) {
+			temp->next =new Node(val);
+			temp= temp->next;
+			size += 1;
+		}
+		last = temp;
 	}
 
 	~MyList() {
-		Node* temp = first,buf;
+		Node* temp = first;
+		Node* buf;
 		while (temp->next!= nullptr) {
 			buf = temp->next;
 			delete temp;
@@ -46,6 +52,7 @@ public:
 		Node* temp = new Node(val);
 		if (is_empty()) {
 			first=last = temp;
+			size += 1;
 			return;
 		}
 		last->next = temp;
@@ -64,7 +71,7 @@ public:
 		size += 1;
 	}
 
-	size_t size()const { return size; }
+	size_t get_size()const { return size; }
 
 	Node* erase(Node* pos) {
 		Node* temp = first;
@@ -77,15 +84,47 @@ public:
 		return temp;
 	}
 
-	void insert(size_t pos, int count, const T& val){}
+	void insert(size_t pos, size_t count, const T& val){
+		if (count == 0) {
+			return;
+		}
+		if(is_empty()){
+			first = last = new Node(val);
+			Node* temp = first;
+			size = 1;
+			while (size < count) {
+				temp->next = new Node(val);
+				temp = temp->next;
+				size += 1;
+			}
+			last = temp;
+		}
+		else {
+			Node* temp = first;
+			size_t i= 2;	//отсчет со второго элемента
+			while (i != pos) {
+				temp = temp->next;
+				i++;
+			}
+			Node* n = temp->next;
+			for (i = 0; i < count; ++i) {
+				temp->next = new Node(val);
+				temp = temp->next;
+				size++;
+			}
+			temp->next = n;
+		}
+	}
 	void insert(size_t pos, const T& val) {
 		if (is_empty()) {
 			push_back(val);
 		}
 		else {
 			Node* temp = first;
-			while (temp->next != pos) {
+			size_t i = 2;	//отсчет со второго элемента
+			while (i < pos) {
 				temp = temp->next;
+				i++;
 			}
 			Node* n = new Node(val);
 			n->next = temp->next;
@@ -94,12 +133,12 @@ public:
 		size += 1;
 	}
 
-	void print()const {
+	void print() {
 		Node* temp = first;
 		do {
-			std::cout << temp->val << std::cout;
+			std::cout << temp->val << " ";
 			temp = temp->next;
-		} while (temp->next != nullptr);
+		} while (temp != nullptr);
 		std::cout << std::endl;
 
 	}
