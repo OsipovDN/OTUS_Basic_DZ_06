@@ -38,13 +38,24 @@ public:
 	}
 
 	void push_back(const T& val) {
-		Node* ref = new Node(val);
+		Node* temp = new Node(val);
 		if (is_empty()) {
-			first=last = ref;
+			first=last = temp;
 			return;
 		}
-		last->next = ref;
-		last = ref;
+		last->next = temp;
+		last = temp;
+		size += 1;
+	}
+
+	void push_front(const T& val) {
+		Node* temp = new Node(val);
+		if (is_empty()) {
+			first = last = temp;
+			return;
+		}
+		temp->next = first;
+		first = temp;
 		size += 1;
 	}
 
