@@ -28,7 +28,9 @@ public:
 		last = temp->next;
 	}
 
-	~MyList();
+	~MyList() {
+
+	}
 
 	void insert(size_t pos, int count, const T& val);
 	void insert(size_t pos, const T& val);
