@@ -77,7 +77,7 @@ public:
 		return temp;
 	}
 
-	void insert(size_t pos, int count, const T& val);
+	void insert(size_t pos, int count, const T& val){}
 	void insert(size_t pos, const T& val) {
 		if (is_empty()) {
 			push_back(val);
@@ -92,5 +92,15 @@ public:
 			temp->next = n;
 		}
 		size += 1;
+	}
+
+	void print()const {
+		Node* temp = first;
+		do {
+			std::cout << temp->val << std::cout;
+			temp = temp->next;
+		} while (temp->next != nullptr);
+		std::cout << std::endl;
+
 	}
 };
