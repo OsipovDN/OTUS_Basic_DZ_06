@@ -76,5 +76,18 @@ public:
 	}
 
 	void insert(size_t pos, int count, const T& val);
-	void insert(size_t pos, const T& val);
+	void insert(size_t pos, const T& val) {
+		if (is_empty()) {
+			push_back(val);
+		}
+		else {
+			Node* temp = first;
+			while (temp->next != pos) {
+				temp = temp->next;
+			}
+			Node* n = new Node(val);
+			n->next = temp->next;
+			temp->next = n;
+		}
+	}
 };
