@@ -82,5 +82,6 @@ template <typename T> void  MyVector<T>::erase(size_t pos) {
 	}
 	delete[]v_ptr;
 	v_ptr = res_v;
+	size_vec--;
 
 }

@@ -40,10 +40,10 @@ template <typename T> MyVecRes<T>::MyVecRes() {
 template <typename T> MyVecRes<T>::MyVecRes(size_t count, const T& val) : MyVecRes() {
 	
 	if (count <= size_vec) {
-		res = size_vec - count;
 		for (size_t i = 0; i < count; ++i) {
 			v_ptr[i] = val;
 		}
+		res = size_vec - count;
 	}
 	else {	
 		res = count;
@@ -59,28 +59,34 @@ template <typename T> MyVecRes<T>::MyVecRes(size_t count, const T& val) : MyVecR
 template <typename T> void  MyVecRes<T>::insert(size_t pos, int count, const T& val) {
 	if (pos < 0)
 		pos = 0;
-	if (pos > (size_vec))
+	if (pos > size_vec)
 		pos = size_vec;
 	if (count <= res) {
-		for (size_t i = 0; i < count; ++i) {
+		T* temp = new T[count];
+		for (size_t i = pos,j=0; i < (pos + count); ++i,++j) {
+			temp[j] = v_ptr[i];
 			v_ptr[i] = val;
 		}
+		for (size_t i = (pos + count), j = 0; i < (size_vec + count); ++i, j++) {
+			v_ptr[i]=temp[j];
+		}
+		delete[]temp;
+		res -=count;
+		size_vec += res;
 	}
 	else {
-		res = count;
-		T* res_v = new T[size_vec + res];
+		T* res_v = new T[size_vec + count];
 		for (size_t i = 0; i < pos; ++i) {
 			res_v[i] = v_ptr[i];
 		}
 		for (size_t i = pos; i < (pos + count); ++i) {
 			res_v[i] = val;
 		}
-		for (size_t i = (pos + count); i < (size_vec + count); ++i) {
+		for (size_t i = (pos + count); i < (size_vec-res); ++i) {
 			res_v[i] = v_ptr[i - count];
 		}
 		delete[]v_ptr;
 		v_ptr = res_v;
-		
 		size_vec += count;
 	}
 }
@@ -106,5 +112,7 @@ template <typename T> void  MyVecRes<T>::erase(size_t pos) {
 	}
 	delete[]v_ptr;
 	v_ptr = res_v;
+	size_vec--;
+	res++;
 
 }
