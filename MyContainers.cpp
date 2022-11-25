@@ -1,5 +1,6 @@
 #include "iostream"
 #include "myVector.h"
+#include "myVec_res.h"
 #include "myList.h"
 
 namespace conteiners {
