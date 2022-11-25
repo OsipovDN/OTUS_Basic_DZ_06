@@ -10,15 +10,16 @@ template <typename T>void print(MyVector <T>& v) {
 }
 
 
-int main() {
-
-	/*MyVector <int> vec1;
+void vector() {
+	//»нициализаци€ пустого вектора и заполнение через push_back
+	MyVector <int> vec1;
 	for (int i = 0; i < 10; ++i) {
 		vec1.push_back(i);
 	}
 	print(vec1);
 	std::cout << vec1.size() << std::endl;
 
+	//”даление третьего,п€того и седьмого элемента
 	vec1.erase(3);
 	std::cout << vec1.size() << std::endl;
 	vec1.erase(4);
@@ -27,24 +28,28 @@ int main() {
 	std::cout << vec1.size() << std::endl;
 	print(vec1);
 
+	//ƒобавление элемента 10 в начало вектора
 	vec1.insert(1, 10);
 	print(vec1);
 
+	//ƒобавление числа 20 в середину контейнера
 	vec1.insert((static_cast <size_t>(vec1.size() / 2)) + 1, 20);
 	print(vec1);
 
+	//ƒобавление элемента 30 в конец вектора
 	vec1.push_back(30);
-	print(vec1);*/
+	print(vec1);
+}
 
-
-	//¬ызов конструктора дл€ создани€ n узлов со значением 3
+void listCont() {
+	//инициализаци€ конструктора дл€ создани€ n int узлов со значением 3
 	MyList <int>lst(5, 3);
 	//–азмер контейнера
 	size_t val = lst.get_size();
 	std::cout << val << std::endl;
 	lst.print();
 
-	//—оздание пустого контейнера и заполнение через push_back
+	//инициализаци€ пустого контейнера int и заполнение через push_back
 	MyList <int>lst1;
 	lst1.push_back(2);
 	lst1.push_back(3);
@@ -70,6 +75,15 @@ int main() {
 	val = lst1.get_size();
 	std::cout << val << std::endl;
 	lst1.print();
+	}
+
+int main() {
+	
+	vector();
+	listCont();
+
+	
+
 	return 0;
 }
 
