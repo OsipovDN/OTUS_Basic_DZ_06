@@ -37,29 +37,39 @@ int main() {
 	print(vec1);*/
 
 
-	MyList <int>lst1(5, 3);
-	/*MyList <int>lst1;
+	//Вызов конструктора для создания n узлов со значением 3
+	MyList <int>lst(5, 3);
+	//Размер контейнера
+	size_t val = lst.get_size();
+	std::cout << val << std::endl;
+	lst.print();
+
+	//Создание пустого контейнера и заполнение через push_back
+	MyList <int>lst1;
 	lst1.push_back(2);
 	lst1.push_back(3);
-	lst1.push_back(4);*/
+	lst1.push_back(4);
 	size_t val = lst1.get_size();
 	std::cout << val << std::endl;
 	lst1.print();
-	lst1.push_back(4);
+
+	//Добавление элемента 2 в позицию 3
 	lst1.insert(3, 2);
 	val = lst1.get_size();
 	std::cout << val << std::endl;
 	lst1.print();
 
+	//Добавление в позицию 2 четырех элементов 1
 	lst1.insert(2, 4, 1);
 	val = lst1.get_size();
 	std::cout << val << std::endl;
 	lst1.print();
 
-	/*lst1.push_front(10);
+	//Добавление элемента в начало списка
+	lst1.push_front(10);
 	val = lst1.get_size();
 	std::cout << val << std::endl;
-	lst1.print();*/
+	lst1.print();
 	return 0;
 }
 
