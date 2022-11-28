@@ -131,7 +131,7 @@ int main() {
 		vec1.push_back(i);
 	}
 	conteiners::print(vec1);
-	MyVector <int>::iter it_ptr=vec1.begin();
+	MyVector <int>::Iterator it_ptr=vec1.begin();
 
 	
 
