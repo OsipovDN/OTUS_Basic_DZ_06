@@ -7,7 +7,7 @@ public:
 
 	explicit MyVecRes(size_t count, const T& val);
 
-	~MyVectRes() {
+	~MyVecRes() {
 		delete[]v_ptr;
 	}
 
@@ -21,7 +21,7 @@ public:
 
 	size_t size()const { return size_vec; }
 
-	T& operator [](size_t pos) {
+	T& operator [](size_t pos) const {
 		return v_ptr[pos];
 	}
 
