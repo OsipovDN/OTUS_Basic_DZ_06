@@ -34,7 +34,6 @@ public:
 			index = 0;
 		}
 		T& operator*();
-
 		bool operator==(Iterator obj);
 		bool operator!=(Iterator obj);
 		Iterator operator +(int val);
