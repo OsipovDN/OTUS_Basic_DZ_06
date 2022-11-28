@@ -115,14 +115,14 @@ template <typename T>
 MyVector<T>::Iterator MyVector<T>::begin() {
 	Iterator p;
 	p.index = 0;
-	p.t = this;
+	p.cont = this;
 	return p;
 }
 template <typename T>
 MyVector<T>::Iterator MyVector<T>::end() {
 	Iterator p;
 	p.index = size();
-	p.t = this;
+	p.cont = this;
 	return p;
 }
 
