@@ -77,7 +77,7 @@ template <typename T> void  MyVector<T>::erase(size_t pos) {
 	for (size_t i = 0; i < pos; ++i) {
 		res_v[i] = v_ptr[i];
 	}
-	for (size_t i = (pos - 1); i < size_vec; ++i) {
+	for (size_t i = pos; i < size_vec; ++i) {
 		res_v[i] = v_ptr[i + 1];
 	}
 	delete[]v_ptr;

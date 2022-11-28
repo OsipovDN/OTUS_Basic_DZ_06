@@ -10,6 +10,12 @@ namespace conteiners {
 		}
 		std::cout << std::endl;
 	}
+	template <typename T>void print(MyVecRes <T>& v) {
+		for (size_t i = 0; i < v.size(); ++i) {
+			std::cout << v[i] << " ";
+		}
+		std::cout << std::endl;
+	}
 
 
 	void vector() {
@@ -56,7 +62,7 @@ namespace conteiners {
 		lst1.push_back(2);
 		lst1.push_back(3);
 		lst1.push_back(4);
-		size_t val = lst1.get_size();
+		val = lst1.get_size();
 		std::cout << val << std::endl;
 		lst1.print();
 
@@ -78,12 +84,46 @@ namespace conteiners {
 		std::cout << val << std::endl;
 		lst1.print();
 	}
+
+	void vector_res() {
+		//Инициализация пустого вектора и заполнение через push_back
+		MyVecRes <int> vec1;
+		std::cout << vec1.size() << std::endl;
+
+		for (int i = 0; i < 10; ++i) {
+			vec1.push_back(i);
+		}
+		print(vec1);
+		std::cout << vec1.size() << std::endl;
+
+		//Удаление третьего,пятого и седьмого элемента
+		vec1.erase(3);
+		std::cout << vec1.size() << std::endl;
+		vec1.erase(4);
+		std::cout << vec1.size() << std::endl;
+		vec1.erase(5);
+		std::cout << vec1.size() << std::endl;
+		print(vec1);
+
+		//Добавление элемента 10 в начало вектора
+		vec1.insert(1, 10);
+		print(vec1);
+
+		//Добавление числа 20 в середину контейнера
+		vec1.insert((static_cast <size_t>(vec1.size() / 2)) + 1, 20);
+		print(vec1);
+
+		//Добавление элемента 30 в конец вектора
+		vec1.push_back(30);
+		print(vec1);
+	}
 }
 
 int main() {
 	
-	conteiners::vector();
-	conteiners::listCont();
+	//conteiners::vector();
+	//conteiners::listCont();
+	conteiners::vector_res();
 
 	
 
