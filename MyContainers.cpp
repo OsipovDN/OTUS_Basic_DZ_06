@@ -124,7 +124,14 @@ int main() {
 	
 	//conteiners::vector();
 	//conteiners::listCont();
-	conteiners::vector_res();
+	//conteiners::vector_res();
+
+	MyVector <int> vec1;
+	for (int i = 0; i < 10; ++i) {
+		vec1.push_back(i);
+	}
+	conteiners::print(vec1);
+	MyVector <int>::iter it_ptr=vec1.begin();
 
 	
 

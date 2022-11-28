@@ -24,6 +24,22 @@ public:
 	T& operator [](size_t pos) {
 		return v_ptr[pos];
 	}
+	class iter {
+	private:
+		T* begin_ptr= nullptr;
+		T* end_ptr= nullptr;
+	public:
+		iter(){
+			begin_ptr = v_ptr;
+			end_ptr = v_ptr[size_vec];
+		}
+		T* begin()const {
+			return begin_ptr;
+		}
+		T* end()const {
+			return v_ptr[size_vec];
+		}
+	};
 
 
 private:
