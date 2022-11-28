@@ -88,13 +88,14 @@ namespace conteiners {
 	void vector_res() {
 		//Инициализация пустого вектора и заполнение через push_back
 		MyVecRes <int> vec1;
-		std::cout << vec1.size() << std::endl;
+		std::cout << vec1.size() << std::endl << std::endl;
 
 		for (int i = 0; i < 10; ++i) {
 			vec1.push_back(i);
+			std::cout << vec1.size() << std::endl;
 		}
 		print(vec1);
-		std::cout << vec1.size() << std::endl;
+		std::cout << vec1.size() << std::endl << std::endl;
 
 		//Удаление третьего,пятого и седьмого элемента
 		vec1.erase(3);
