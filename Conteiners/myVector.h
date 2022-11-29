@@ -10,21 +10,6 @@ public:
 	~MyVector() {
 		delete[]v_ptr;
 	}
-
-	void insert(size_t pos, int count, const T& val);
-
-	void insert(size_t pos, const T& val);
-
-	void push_back(const T& val);
-
-	void erase(size_t pos);
-
-	size_t size()const { return size_vec; }
-
-	T& operator [](size_t pos) {
-		return v_ptr[pos];
-	}
-
 	class Iterator {
 	public:
 		MyVector<T>* cont;
@@ -43,6 +28,14 @@ public:
 		Iterator operator--();
 		Iterator operator--(int);
 	};
+
+	void insert(size_t pos, int count, const T& val);
+	void insert(size_t pos, const T& val);
+	void push_back(const T& val);
+	void erase(size_t pos);
+	size_t size()const { return size_vec; }
+	T& operator [](size_t pos);
+
 	Iterator begin();
 	Iterator end();
 private:
@@ -110,6 +103,10 @@ void  MyVector<T>::erase(size_t pos) {
 	size_vec--;
 
 }
+template <typename T>
+T& MyVector<T>::operator [](size_t pos) {
+	return v_ptr[pos];
+}
 
 template <typename T>
 MyVector<T>::Iterator MyVector<T>::begin() {
@@ -132,7 +129,7 @@ T& MyVector<T>::Iterator::operator*() {
 }
 template <typename T>
 bool MyVector<T>::Iterator::operator==(Iterator obj) {
-	if ((index == obj.index) && (cont = obj.cont)) return true;
+	if ((index == obj.index) && (cont == obj.cont)) return true;
 	else return false;
 }
 template <typename T>
