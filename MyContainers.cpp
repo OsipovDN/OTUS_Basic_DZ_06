@@ -127,16 +127,13 @@ int main() {
 	//conteiners::vector_res();
 
 	MyVector <int> vec1;
-	for (auto i = 0; i < 10; ++i) {
+	MyVector <int>::Iterator it_ptr;
+	for (int i = 0; i < 10; ++i) {
 		vec1.push_back(i);
-		//std::cout << i << " ";
 	}
-	conteiners::print(vec1);
-	/*MyVector <int>::Iterator it_ptr;
 	for (it_ptr = vec1.begin(); it_ptr !=vec1.end(); ++it_ptr) {
 		std::cout << *it_ptr << " ";
-	}*/
-	std::cout << std::endl;
+	}
 
 	
 
