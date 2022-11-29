@@ -5,9 +5,11 @@ class MyVector {
 public:
 	
 	class Iterator {
-	public:
+	private:
 		MyVector<T>* cont;
 		size_t index;
+	public:
+		
 		Iterator() {
 			cont = nullptr;
 			index = 0;
