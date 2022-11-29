@@ -3,32 +3,11 @@
 template <typename T>
 class MyVector {
 public:
-	MyVector();
-
-	explicit MyVector(size_t count, const T& val);
-
-	~MyVector() {
-		delete[]v_ptr;
-	}
-
-	void insert(size_t pos, int count, const T& val);
-
-	void insert(size_t pos, const T& val);
-
-	void push_back(const T& val);
-
-	void erase(size_t pos);
-
-	size_t size()const { return size_vec; }
-
-	T& operator [](size_t pos) {
-		return v_ptr[pos];
-	}
-
-	class Iterator {
+	
+	/*class Iterator {
 	public:
 		MyVector<T>* cont;
-		int index;
+		size_t index;
 		Iterator() {
 			cont = nullptr;
 			index = 0;
@@ -39,12 +18,23 @@ public:
 		Iterator operator +(int val);
 		Iterator operator-(int val);
 		Iterator operator++();
-		Iterator operator++(int);
 		Iterator operator--();
-		Iterator operator--(int);
-	};
-	Iterator begin();
-	Iterator end();
+	};*/
+
+	MyVector();
+	explicit MyVector(size_t count, const T& val);
+	~MyVector() {
+		delete[]v_ptr;
+	}
+	void insert(size_t pos, int count, const T& val);
+	void insert(size_t pos, const T& val);
+	void push_back(const T& val);
+	void erase(size_t pos);
+	size_t size()const { return size_vec; }
+	T& operator [](size_t pos);
+
+	/*Iterator begin();
+	Iterator end();*/
 private:
 	T* v_ptr;
 	size_t size_vec;
@@ -110,72 +100,71 @@ void  MyVector<T>::erase(size_t pos) {
 	size_vec--;
 
 }
-
 template <typename T>
-MyVector<T>::Iterator MyVector<T>::begin() {
-	Iterator p;
-	p.index = 0;
-	p.cont = this;
-	return p;
-}
-template <typename T>
-MyVector<T>::Iterator MyVector<T>::end() {
-	Iterator p;
-	p.index = size();
-	p.cont = this;
-	return p;
+T& MyVector<T>::operator [](size_t pos) {
+	return v_ptr[pos];
 }
 
-template <typename T>
-T& MyVector<T>::Iterator::operator*() {
-	return (*cont)[index];
-}
-template <typename T>
-bool MyVector<T>::Iterator::operator==(Iterator obj) {
-	if ((index == obj.index) && (cont = obj.cont)) return true;
-	else return false;
-}
-template <typename T>
-bool MyVector<T>::Iterator::operator!=(Iterator obj) {
-	if (index != obj.index) return true;
-	if (cont != obj.cont)return true;
-	return false;
-}
-template <typename T>
-MyVector<T>::Iterator MyVector<T>::Iterator::operator +(int val) {
-	int ind = index + val;
-	Iterator p;
-	p.cont = cont;
-	if (ind > cont->size())ind = cont->size();
-	p.index = ind;
-	return p;
-}
-template <typename T>
-MyVector<T>::Iterator MyVector<T>::Iterator::operator-(int val) {
-	int ind = index - val;
-	Iterator p;
-	p.cont = cont;
-	if (ind < 0)ind = 0;
-	p.index = ind;
-	return p;
-}
-template <typename T>
-MyVector<T>::Iterator MyVector<T>::Iterator::operator++() {
-	index++;
-	if (index > cont->size())index = cont->size();
-	return *this;
-}
-template <typename T>
-MyVector<T>::Iterator MyVector<T>::Iterator::operator++(int) {
-	return ++(*this);
-}
-template <typename T>
-MyVector<T>::Iterator MyVector<T>::Iterator::operator--() {
-	index--;
-	if (index < 0)index = 0;
-	return *this;
-}
-template <typename T>
-MyVector<T>::Iterator MyVector<T>::Iterator::operator--(int) {
-	return--(*this);
-}
+
+//template <typename T>
+//typename MyVector<T>::Iterator MyVector<T>::begin() {
+//	MyVector<T>::Iterator p;
+//	p.index = 0;
+//	p.cont = this;
+//	return p;
+//}
+//template <typename T>
+//typename MyVector< T>::Iterator MyVector<T>::end() {
+//	MyVector<typename T>::Iterator p;
+//	p.index = size();
+//	p.cont = this;
+//	return p;
+//}
+//
+//template <typename T>
+//T& MyVector<T>::Iterator::operator*() {
+//	return (*cont)[index];
+//}
+//template <typename T>
+//bool MyVector<T>::Iterator::operator==(Iterator obj) {
+//	if ((index == obj.index) && (cont == obj.cont)) return true;
+//	else return false;
+//}
+//template <typename T>
+//bool MyVector<T>::Iterator::operator!=(Iterator obj) {
+//	if (index != obj.index) return true;
+//	if (cont != obj.cont)return true;
+//	return false;
+//}
+//template <typename T>
+//typename MyVector<T>::Iterator MyVector<T>::Iterator::operator +(int val) {
+//	int ind = index + val;
+//	Iterator p;
+//	p.cont = cont;
+//	if (ind > cont->size())ind = cont->size();
+//	p.index = ind;
+//	return p;
+//}
+//template <typename T>
+//typename MyVector<T>::Iterator MyVector<T>::Iterator::operator-(int val) {
+//	int ind = index - val;
+//	Iterator p;
+//	p.cont = cont;
+//	if (ind < 0)ind = 0;
+//	p.index = ind;
+//	return p;
+//}
+//template <typename T>
+//typename MyVector<T>::Iterator MyVector<T>::Iterator::operator++() {
+//	index++;
+//	if (index > cont->size())index = cont->size();
+//	return *this;
+//}
+//
+//template <typename T>
+//typename MyVector<T>::Iterator MyVector<T>::Iterator::operator--() {
+//	index--;
+//	if (index < 0)index = 0;
+//	return *this;
+//}
+
