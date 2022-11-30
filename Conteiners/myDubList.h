@@ -106,7 +106,7 @@ void MyDubList<T>::erase(const size_t& pos) {
 	n = temp->next;
 	temp->next = n->next;
 	temp = n->next;
-	temp->prev = n;
+	temp->prev = n->prev;
 	delete n;
 	size -= 1;
 }
@@ -119,7 +119,7 @@ void MyDubList<T>::insert(const size_t& pos, size_t count, const T& val) {
 	if (count == 0) {
 		return;
 	}
-	if (is_empty() || pos == size) {
+	if (is_empty()) {
 		first = last = new Node(val);
 		temp = first;
 		size = 1;
@@ -138,16 +138,16 @@ void MyDubList<T>::insert(const size_t& pos, size_t count, const T& val) {
 		while (i != pos) {
 			temp = temp->next;
 			i++;
-		}
-		n = temp->next;
+		}	
 		for (i = 0; i < count; ++i) {
+			p = temp->next;
 			temp->next = new Node(val);
-			p = temp;
-			temp = temp->next;
-			temp->prev = p;
-			size++;
+			n = temp->next;
+			n->prev = temp;
+			n->next = p;
+			p->prev = n;
+			size+=1;
 		}
-		temp->next = n;
 	}
 }
 
@@ -155,7 +155,7 @@ template <typename T>
 void MyDubList<T>::insert(const size_t& pos, const T& val) {
 	Node* temp = nullptr;
 	Node* n = nullptr;
-	Node* p = nullptr;
+	Node* p= nullptr;
 	if (is_empty()|| pos==size) {
 		push_back(val);
 	}
@@ -167,7 +167,9 @@ void MyDubList<T>::insert(const size_t& pos, const T& val) {
 			i++;
 		}
 		n = new Node(val);
-		n->next = temp->next;
+		p = temp->next;
+		p->prev = n;
+		n->next=p;
 		n->prev = temp;
 		temp->next = n;
 	}

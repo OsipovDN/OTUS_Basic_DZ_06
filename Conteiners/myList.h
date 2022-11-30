@@ -51,7 +51,7 @@ MyList<T>::MyList(const size_t& count, const T& val) :MyList() {
 template <typename T>
 MyList<T>::~MyList() {
 	Node* temp = first;
-	Node* buf;
+	Node* buf=nullptr;
 	while (temp->next != nullptr) {
 		buf = temp->next;
 		delete temp;
@@ -106,11 +106,13 @@ void MyList<T>::erase(const size_t& pos) {
 
 template <typename T>
 void MyList<T>::insert(const size_t& pos, size_t count, const T& val) {
+	Node* temp = nullptr;
+	Node* n = nullptr;
 	if (count == 0)
 		return;
 	if (is_empty()) {
 		first = last = new Node(val);
-		Node* temp = first;
+		temp = first;
 		size = 1;
 		while (size < count) {
 			temp->next = new Node(val);
@@ -120,13 +122,13 @@ void MyList<T>::insert(const size_t& pos, size_t count, const T& val) {
 		last = temp;
 	}
 	else {
-		Node* temp = first;
+		temp = first;
 		size_t i = 2;	//отсчет со второго элемента
 		while (i != pos) {
 			temp = temp->next;
 			i++;
 		}
-		Node* n = temp->next;
+		n = temp->next;
 		for (i = 0; i < count; ++i) {
 			temp->next = new Node(val);
 			temp = temp->next;
@@ -138,16 +140,18 @@ void MyList<T>::insert(const size_t& pos, size_t count, const T& val) {
 
 template <typename T>
 void MyList<T>::insert(const size_t& pos, const T& val) {
-	if (is_empty())
+	Node* temp = nullptr;
+	Node* n = nullptr;
+	if (is_empty() || pos == size)
 		push_back(val);
 	else {
-		Node* temp = first;
+		temp = first;
 		size_t i = 2;	//отсчет со второго элемента
 		while (i < pos) {
 			temp = temp->next;
 			i++;
 		}
-		Node* n = new Node(val);
+		n = new Node(val);
 		n->next = temp->next;
 		temp->next = n;
 	}

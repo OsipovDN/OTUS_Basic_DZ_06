@@ -140,6 +140,9 @@ namespace conteiners {
 		lst1.push_back(2);
 		lst1.push_back(3);
 		lst1.push_back(4);
+		lst1.push_back(5);
+		lst1.push_back(6);
+		lst1.push_back(7);
 		std::cout << "Size = " << lst1.get_size() << std::endl;
 		lst1.print();
 
@@ -167,6 +170,7 @@ namespace conteiners {
 
 
 	void iterVec() {
+		std::cout << "Работа с итераторами контейнера vector" << std::endl;
 		MyVector <int> vec1;
 		MyVector <int>::Iterator it_ptr;
 		for (int i = 0; i < 10; ++i) 
