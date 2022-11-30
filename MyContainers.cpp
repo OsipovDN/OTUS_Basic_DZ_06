@@ -2,15 +2,18 @@
 #include "myVector.h"
 #include "myVec_res.h"
 #include "myList.h"
+#include "myDubList.h"
 
 namespace conteiners {
-	template <typename T>void print(MyVector <T>& v) {
+	template <typename T>
+	void print(MyVector <T>& v) {
 		for (size_t i = 0; i < v.size(); ++i) {
 			std::cout << v[i] << " ";
 		}
 		std::cout << std::endl;
 	}
-	template <typename T>void print(MyVecRes <T>& v) {
+	template <typename T>
+	void print(MyVecRes <T>& v) {
 		for (size_t i = 0; i < v.size(); ++i) {
 			std::cout << v[i] << " ";
 		}
@@ -19,15 +22,14 @@ namespace conteiners {
 
 
 	void vector() {
-		//Инициализация пустого вектора и заполнение через push_back
+		std::cout << "Инициализация пустого вектора и заполнение через push_back" << std::endl;
 		MyVector <int> vec1;
-		for (int i = 0; i < 10; ++i) {
+		for (int i = 0; i < 10; ++i) 
 			vec1.push_back(i);
-		}
 		print(vec1);
 		std::cout << vec1.size() << std::endl;
 
-		//Удаление третьего,пятого и седьмого элемента
+		std::cout << "Удаление третьего, пятого и седьмого элемента" << std::endl;
 		vec1.erase(3);
 		std::cout << vec1.size() << std::endl;
 		vec1.erase(4);
@@ -36,57 +38,59 @@ namespace conteiners {
 		std::cout << vec1.size() << std::endl;
 		print(vec1);
 
-		//Добавление элемента 10 в начало вектора
+		std::cout << "Добавление элемента 10 в начало вектора" << std::endl;
 		vec1.insert(1, 10);
 		print(vec1);
 
-		//Добавление числа 20 в середину контейнера
+		std::cout << "Добавление числа 20 в середину контейнера" << std::endl;
 		vec1.insert((static_cast <size_t>(vec1.size() / 2)) + 1, 20);
 		print(vec1);
 
-		//Добавление элемента 30 в конец вектора
+		std::cout << "Добавление элемента 30 в конец вектора" << std::endl;
 		vec1.push_back(30);
 		print(vec1);
+		std::cout << std::endl;
 	}
 
 	void listCont() {
-		//инициализация конструктора для создания n int узлов со значением 3
+		std::cout << "Инициализация конструктора для создания n int узлов со значением 3" << std::endl;
 		MyList <int>lst(5, 3);
-		//Размер контейнера
-		size_t val = lst.get_size();
-		std::cout << val << std::endl;
+		std::cout << "Размер контейнера" << std::endl;
+		std::cout << "Size = " << lst.get_size() << std::endl;
 		lst.print();
 
-		//инициализация пустого контейнера int и заполнение через push_back
+		std::cout << "Инициализация пустого контейнера int и заполнение через push_back" << std::endl;
 		MyList <int>lst1;
 		lst1.push_back(2);
 		lst1.push_back(3);
 		lst1.push_back(4);
-		val = lst1.get_size();
-		std::cout << val << std::endl;
+		std::cout<<"Size = " << lst1.get_size() << std::endl;
 		lst1.print();
 
-		//Добавление элемента 2 в позицию 3
+		std::cout << "Добавление элемента 2 в позицию 3" << std::endl;
 		lst1.insert(3, 2);
-		val = lst1.get_size();
-		std::cout << val << std::endl;
+		std::cout << "Size = " << lst1.get_size() << std::endl;
 		lst1.print();
 
-		//Добавление в позицию 2 четырех элементов 1
+		std::cout << "Добавление в позицию 2 четырех элементов 1" << std::endl;
 		lst1.insert(2, 4, 1);
-		val = lst1.get_size();
-		std::cout << val << std::endl;
+		std::cout << "Size = " << lst1.get_size() << std::endl;
 		lst1.print();
 
-		//Добавление элемента в начало списка
+		std::cout << "Добавление элемента в начало списка" << std::endl;
 		lst1.push_front(10);
-		val = lst1.get_size();
-		std::cout << val << std::endl;
+		std::cout << "Size = " << lst1.get_size() << std::endl;
 		lst1.print();
+
+		std::cout << "Удаление 3-его элемента из списка" << std::endl;
+		lst1.erase(3);
+		std::cout << "Size = " << lst1.get_size() << std::endl;
+		lst1.print();
+		std::cout << std::endl;
 	}
 
 	void vector_res() {
-		//Инициализация пустого вектора и заполнение через push_back
+		std::cout << "Инициализация пустого вектора и заполнение через push_back" << std::endl;
 		MyVecRes <int> vec1;
 		std::cout << vec1.size() << std::endl << std::endl;
 
@@ -97,7 +101,7 @@ namespace conteiners {
 		print(vec1);
 		std::cout << vec1.size() << std::endl << std::endl;
 
-		//Удаление третьего,пятого и седьмого элемента
+		std::cout << "Удаление третьего,пятого и седьмого элемента" << std::endl;
 		vec1.erase(3);
 		std::cout << vec1.size() << std::endl;
 		vec1.erase(4);
@@ -106,34 +110,37 @@ namespace conteiners {
 		std::cout << vec1.size() << std::endl;
 		print(vec1);
 
-		//Добавление элемента 10 в начало вектора
+		std::cout << "Добавление элемента 10 в начало вектора" << std::endl;
 		vec1.insert(1, 10);
 		print(vec1);
 
-		//Добавление числа 20 в середину контейнера
+		std::cout << "Добавление числа 20 в середину контейнера" << std::endl;
 		vec1.insert((static_cast <size_t>(vec1.size() / 2)) + 1, 20);
 		print(vec1);
 
-		//Добавление элемента 30 в конец вектора
+		std::cout << "Добавление элемента 30 в конец вектора" << std::endl;
 		vec1.push_back(30);
 		print(vec1);
+		std::cout << std::endl;
+	}
+
+
+	void iterVec() {
+		MyVector <int> vec1;
+		MyVector <int>::Iterator it_ptr;
+		for (int i = 0; i < 10; ++i) 
+			vec1.push_back(i);
+		for (it_ptr = vec1.begin(); it_ptr != vec1.end(); ++it_ptr) 
+			std::cout << *it_ptr << " ";
 	}
 }
 
 int main() {
 	
-	//conteiners::vector();
-	//conteiners::listCont();
+	conteiners::vector();
+	conteiners::listCont();
 	//conteiners::vector_res();
-
-	MyVector <int> vec1;
-	MyVector <int>::Iterator it_ptr;
-	for (int i = 0; i < 10; ++i) {
-		vec1.push_back(i);
-	}
-	for (it_ptr = vec1.begin(); it_ptr !=vec1.end(); ++it_ptr) {
-		std::cout << *it_ptr << " ";
-	}
+	conteiners::iterVec();
 
 	
 

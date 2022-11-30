@@ -15,15 +15,15 @@ class MyList {
 public:
 	MyList() :first(nullptr), last(nullptr), size(0) {}
 	explicit MyList(const T& val);
-	explicit MyList(size_t count, const T& val);
+	explicit MyList(const size_t& count, const T& val);
 	~MyList();
 	bool is_empty()const;
 	void push_back(const T& val);
 	void push_front(const T& val);
 	size_t get_size()const { return size; }
-	Node* erase(Node* pos);
-	void insert(size_t pos, size_t count, const T& val);
-	void insert(size_t pos, const T& val);
+	void erase(const size_t& pos);
+	void insert(const size_t& pos, size_t count, const T& val);
+	void insert(const size_t& pos, const T& val);
 	void print()const;
 };
 
@@ -34,7 +34,7 @@ MyList<T>::MyList(const T& val) :MyList() {
 	size += 1;
 }
 template <typename T>
-MyList<T>::MyList(size_t count, const T& val) :MyList() {
+MyList<T>::MyList(const size_t& count, const T& val) :MyList() {
 	if (count == 0)
 		return;
 	first = last = new Node(val);
@@ -90,19 +90,22 @@ void MyList<T>::push_front(const T& val) {
 }
 
 template <typename T>
-typename MyList<T>::Node* MyList<T>::erase(Node* pos) {
+void MyList<T>::erase(const size_t& pos) {
 	Node* temp = first;
-	while (temp != pos) {
+	Node* n=nullptr;
+	size_t i = 2;
+	while (i < pos) {
 		temp = temp->next;
+		i++;
 	}
-	temp->next = lst->next;
-	delete lst;
+	n=temp->next;
+	temp->next = n->next;
+	delete n;
 	size -= 1;
-	return temp;
 }
 
 template <typename T>
-void MyList<T>::insert(size_t pos, size_t count, const T& val) {
+void MyList<T>::insert(const size_t& pos, size_t count, const T& val) {
 	if (count == 0)
 		return;
 	if (is_empty()) {
@@ -134,7 +137,7 @@ void MyList<T>::insert(size_t pos, size_t count, const T& val) {
 }
 
 template <typename T>
-void MyList<T>::insert(size_t pos, const T& val) {
+void MyList<T>::insert(const size_t& pos, const T& val) {
 	if (is_empty())
 		push_back(val);
 	else {
