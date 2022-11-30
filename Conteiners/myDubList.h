@@ -95,7 +95,7 @@ void MyDubList<T>::push_front(const T& val) {
 }
 //Доделать с этого момента
 template <typename T>
-void MyList<T>::erase(const size_t& pos) {
+void MyDubList<T>::erase(const size_t& pos) {
 	Node* temp = first;
 	Node* n = nullptr;
 	size_t i = 2;
