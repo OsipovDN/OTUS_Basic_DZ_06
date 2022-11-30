@@ -182,7 +182,6 @@ namespace conteiners {
 
 int main() {
 	
-	system("chcp 1251>nul");
 	conteiners::vector();
 	conteiners::listCont();
 	conteiners::DublistCont();
