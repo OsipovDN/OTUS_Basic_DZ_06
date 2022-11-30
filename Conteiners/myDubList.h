@@ -6,8 +6,9 @@ class MyDubList {
 	struct Node
 	{
 		T val;
+		Node* prev;
 		Node* next;
-		Node(const T& count) :val(count), next(nullptr) {}
+		Node(const T& count) :val(count),prev(nullptr), next(nullptr) {}
 	};
 	Node* first;
 	Node* last;
