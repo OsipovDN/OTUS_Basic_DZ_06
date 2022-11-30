@@ -21,8 +21,8 @@ public:
 		Iterator operator-(int val);
 		Iterator operator++();
 		Iterator operator--();
-		friend Iterator MyVector<T>::begin()const;
-		friend Iterator MyVector<T>::end()const;
+		friend Iterator MyVector<T>::begin();
+		friend Iterator MyVector<T>::end();
 	};
 
 	MyVector();
@@ -37,8 +37,8 @@ public:
 	size_t size()const { return size_vec; }
 	T& operator [](const size_t pos)const { return v_ptr[pos]; }
 
-	Iterator begin()const;
-	Iterator end()const;
+	Iterator begin();
+	Iterator end();
 private:
 	T* v_ptr;
 	size_t size_vec;
@@ -105,14 +105,14 @@ void  MyVector<T>::erase(size_t pos) {
 }
 
 template <typename T>
-typename MyVector<T>::Iterator MyVector<T>::begin()const {
+typename MyVector<T>::Iterator MyVector<T>::begin() {
 	MyVector<T>::Iterator p;
 	p.index = 0;
 	p.cont = this;
 	return p;
 }
 template <typename T>
-typename MyVector< T>::Iterator MyVector<T>::end() const {
+typename MyVector< T>::Iterator MyVector<T>::end() {
 	MyVector<T>::Iterator p;
 	p.index = size();
 	p.cont = this;

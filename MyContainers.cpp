@@ -22,6 +22,7 @@ namespace conteiners {
 
 
 	void vector() {
+		std::cout << "–абота с контейнером vector" << std::endl;
 		std::cout << "»нициализаци€ пустого вектора и заполнение через push_back" << std::endl;
 		MyVector <int> vec1;
 		for (int i = 0; i < 10; ++i) 
@@ -53,6 +54,7 @@ namespace conteiners {
 	}
 
 	void listCont() {
+		std::cout << "–абота с контейнером list" << std::endl;
 		std::cout << "»нициализаци€ конструктора дл€ создани€ n int узлов со значением 3" << std::endl;
 		MyList <int>lst(5, 3);
 		std::cout << "–азмер контейнера" << std::endl;
@@ -90,6 +92,7 @@ namespace conteiners {
 	}
 
 	void vector_res() {
+		std::cout << "–абота с контейнером vector с резервированием пам€ти" << std::endl;
 		std::cout << "»нициализаци€ пустого вектора и заполнение через push_back" << std::endl;
 		MyVecRes <int> vec1;
 		std::cout << vec1.size() << std::endl << std::endl;
@@ -125,6 +128,7 @@ namespace conteiners {
 	}
 
 	void DublistCont() {
+		std::cout << "–абота с контейнером list (двунаправленный список)" << std::endl;
 		std::cout << "»нициализаци€ конструктора дл€ создани€ n int узлов со значением 3" << std::endl;
 		MyDubList <int>lst(5, 3);
 		std::cout << "–азмер контейнера" << std::endl;
@@ -132,7 +136,7 @@ namespace conteiners {
 		lst.print();
 
 		std::cout << "»нициализаци€ пустого контейнера int и заполнение через push_back" << std::endl;
-		MyList <int>lst1;
+		MyDubList <int>lst1;
 		lst1.push_back(2);
 		lst1.push_back(3);
 		lst1.push_back(4);
