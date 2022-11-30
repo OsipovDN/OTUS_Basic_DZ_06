@@ -12,6 +12,7 @@ namespace conteiners {
 		}
 		std::cout << std::endl;
 	}
+
 	template <typename T>
 	void print(MyVecRes <T>& v) {
 		for (size_t i = 0; i < v.size(); ++i) {
@@ -25,19 +26,18 @@ namespace conteiners {
 		std::cout << "Работа с контейнером vector" << std::endl;
 		std::cout << "Инициализация пустого вектора и заполнение через push_back" << std::endl;
 		MyVector <int> vec1;
-		for (int i = 0; i < 10; ++i) 
+		for (int i = 0; i < 10; ++i){
 			vec1.push_back(i);
+		}
 		print(vec1);
-		std::cout << vec1.size() << std::endl;
+		std::cout << "Size = " << vec1.size() << std::endl;
 
 		std::cout << "Удаление третьего, пятого и седьмого элемента" << std::endl;
 		vec1.erase(3);
-		std::cout << vec1.size() << std::endl;
 		vec1.erase(4);
-		std::cout << vec1.size() << std::endl;
 		vec1.erase(5);
-		std::cout << vec1.size() << std::endl;
 		print(vec1);
+		std::cout << "Size = " << vec1.size() << std::endl;
 
 		std::cout << "Добавление элемента 10 в начало вектора" << std::endl;
 		vec1.insert(1, 10);
@@ -95,35 +95,35 @@ namespace conteiners {
 		std::cout << "Работа с контейнером vector с резервированием памяти" << std::endl;
 		std::cout << "Инициализация пустого вектора и заполнение через push_back" << std::endl;
 		MyVecRes <int> vec1;
-		std::cout << vec1.size() << std::endl << std::endl;
+		std::cout << "Количество элементов= " << vec1.size() << "\nSize = " << vec1.capacity() << std::endl;
 
 		for (int i = 0; i < 10; ++i) {
-			vec1.push_back(i);
-			std::cout << vec1.size() << std::endl;
+			vec1.push_back(i);	
 		}
 		print(vec1);
-		std::cout << vec1.size() << std::endl << std::endl;
+		std::cout << "Количество элементов= " << vec1.size() << "\nSize = " << vec1.capacity() << std::endl;
 
 		std::cout << "Удаление третьего,пятого и седьмого элемента" << std::endl;
 		vec1.erase(3);
-		std::cout << vec1.size() << std::endl;
 		vec1.erase(4);
-		std::cout << vec1.size() << std::endl;
 		vec1.erase(5);
-		std::cout << vec1.size() << std::endl;
+		std::cout << "Количество элементов= " << vec1.size() << "\nSize = " << vec1.capacity() << std::endl;
 		print(vec1);
 
 		std::cout << "Добавление элемента 10 в начало вектора" << std::endl;
 		vec1.insert(1, 10);
 		print(vec1);
+		std::cout <<"Количество элементов= " << vec1.size() << "\nSize = " << vec1.capacity() << std::endl;
 
 		std::cout << "Добавление числа 20 в середину контейнера" << std::endl;
 		vec1.insert((static_cast <size_t>(vec1.size() / 2)) + 1, 20);
 		print(vec1);
+		std::cout << "Количество элементов= " << vec1.size() << "\nSize = " << vec1.capacity() << std::endl;
 
 		std::cout << "Добавление элемента 30 в конец вектора" << std::endl;
 		vec1.push_back(30);
 		print(vec1);
+		std::cout << "Количество элементов= " << vec1.size() << "\nSize = " << vec1.capacity() << std::endl;
 		std::cout << std::endl;
 	}
 
@@ -181,12 +181,11 @@ namespace conteiners {
 }
 
 int main() {
-	
-	system("chcp 1251>nul");
+	//system("chcp 1251 > null");
 	conteiners::vector();
+	conteiners::vector_res();
 	conteiners::listCont();
 	conteiners::DublistCont();
-	//conteiners::vector_res();
 	conteiners::iterVec();
 
 	
