@@ -93,12 +93,11 @@ void MyDubList<T>::push_front(const T& val) {
 	first = temp;
 	size += 1;
 }
-//Доделать с этого момента
 template <typename T>
 void MyDubList<T>::erase(const size_t& pos) {
 	Node* temp = first;
 	Node* n = nullptr;
-	size_t i = 2;
+	size_t i = 2; //отсчет со второго элемента
 	while (i < pos) {
 		temp = temp->next;
 		i++;
