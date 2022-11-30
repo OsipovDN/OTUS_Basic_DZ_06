@@ -44,6 +44,7 @@ MyDubList<T>::MyDubList(size_t count, const T& val) : MyDubList() {
 	size = 1;
 	while (size < count) {
 		temp->next = new Node(val);
+		temp->prev = temp;
 		temp = temp->next;
 		size += 1;
 	}
@@ -74,6 +75,7 @@ void MyDubList<T>::push_back(const T& val) {
 		size += 1;
 		return;
 	}
+	temp->prev = last;
 	last->next = temp;
 	last = temp;
 	size += 1;
@@ -86,11 +88,12 @@ void MyDubList<T>::push_front(const T& val) {
 		first = last = temp;
 		return;
 	}
+	first->prev = temp;
 	temp->next = first;
 	first = temp;
 	size += 1;
 }
-
+//Доделать с этого момента
 template <typename T>
 typename MyDubList<T>::Node* MyDubList<T>::erase(Node* pos) {
 	Node* temp = first;
