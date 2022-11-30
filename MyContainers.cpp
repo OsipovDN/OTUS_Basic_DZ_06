@@ -82,8 +82,8 @@ namespace conteiners {
 		std::cout << "Size = " << lst1.get_size() << std::endl;
 		lst1.print();
 
-		std::cout << "Удаление 3-его элемента из списка" << std::endl;
-		lst1.erase(3);
+		std::cout << "Удаление 2-ого элемента из списка" << std::endl;
+		lst1.erase(2);
 		std::cout << "Size = " << lst1.get_size() << std::endl;
 		lst1.print();
 		std::cout << std::endl;
@@ -124,6 +124,43 @@ namespace conteiners {
 		std::cout << std::endl;
 	}
 
+	void DublistCont() {
+		std::cout << "Инициализация конструктора для создания n int узлов со значением 3" << std::endl;
+		MyDubList <int>lst(5, 3);
+		std::cout << "Размер контейнера" << std::endl;
+		std::cout << "Size = " << lst.get_size() << std::endl;
+		lst.print();
+
+		std::cout << "Инициализация пустого контейнера int и заполнение через push_back" << std::endl;
+		MyList <int>lst1;
+		lst1.push_back(2);
+		lst1.push_back(3);
+		lst1.push_back(4);
+		std::cout << "Size = " << lst1.get_size() << std::endl;
+		lst1.print();
+
+		std::cout << "Добавление элемента 2 в позицию 3" << std::endl;
+		lst1.insert(3, 2);
+		std::cout << "Size = " << lst1.get_size() << std::endl;
+		lst1.print();
+
+		std::cout << "Добавление в позицию 2 четырех элементов 1" << std::endl;
+		lst1.insert(2, 4, 1);
+		std::cout << "Size = " << lst1.get_size() << std::endl;
+		lst1.print();
+
+		std::cout << "Добавление элемента в начало списка" << std::endl;
+		lst1.push_front(10);
+		std::cout << "Size = " << lst1.get_size() << std::endl;
+		lst1.print();
+
+		std::cout << "Удаление 2-ого элемента из списка" << std::endl;
+		lst1.erase(2);
+		std::cout << "Size = " << lst1.get_size() << std::endl;
+		lst1.print();
+		std::cout << std::endl;
+	}
+
 
 	void iterVec() {
 		MyVector <int> vec1;
@@ -137,8 +174,10 @@ namespace conteiners {
 
 int main() {
 	
+	system("chcp 1251>nul");
 	conteiners::vector();
 	conteiners::listCont();
+	conteiners::DublistCont();
 	//conteiners::vector_res();
 	conteiners::iterVec();
 

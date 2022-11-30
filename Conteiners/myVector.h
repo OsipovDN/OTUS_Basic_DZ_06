@@ -112,8 +112,8 @@ typename MyVector<T>::Iterator MyVector<T>::begin()const {
 	return p;
 }
 template <typename T>
-typename MyVector< T>::Iterator MyVector<T>::end()const {
-	MyVector<typename T>::Iterator p;
+typename MyVector< T>::Iterator MyVector<T>::end() const {
+	MyVector<T>::Iterator p;
 	p.index = size();
 	p.cont = this;
 	return p;
@@ -125,13 +125,13 @@ T& MyVector<T>::Iterator::operator*() {
 }
 template <typename T>
 bool MyVector<T>::Iterator::operator==(const Iterator obj)const {
-	if ((index == obj.index) && (cont == obj.cont)) 
+	if ((index == obj.index) || (cont == obj.cont)) 
 		return true;
 	return false;
 }
 template <typename T>
 bool MyVector<T>::Iterator::operator!=(const Iterator obj)const {
-	if (index != obj.index && cont != obj.cont) 
+	if (index != obj.index || cont != obj.cont) 
 		return true;
 	return false;
 }

@@ -182,4 +182,10 @@ void MyDubList<T>::print()const {
 		temp = temp->next;
 	} while (temp != nullptr);
 	std::cout << std::endl;
+	temp = last;
+	do {
+		std::cout << temp->val << " ";
+		temp = temp->prev;
+	} while (temp != nullptr);
+	std::cout << std::endl;
 }
